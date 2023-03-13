@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxvrdvi8u0CY3ynDipSJmtGvJVmpYZmSNNinieE86cfQ&s" id="img" style="width: 300px">
+<h1>click để di chuyển quả bóng</h1>
+<button type="button" id="click" onclick="move()">Click me</button>
+<script>
+    let objimg = document.getElementById('img')
+    function init() {
+        let objimg = document.getElementById('img')
+        objimg.style.position = 'relative'
+        objimg.style.left = '0px'
+    }
+    function move() {
+        objimg.style.left = parseInt(objimg.style.left) + 10 + 'px'
+    }
+    window.onload = init;
+
+</script>
+</body>
+</html>
