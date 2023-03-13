@@ -6,17 +6,41 @@
 </head>
 <body>
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxvrdvi8u0CY3ynDipSJmtGvJVmpYZmSNNinieE86cfQ&s" id="img" style="width: 300px">
-<h1>click để di chuyển quả bóng</h1>
-<button type="button" id="click" onclick="move()">Click me</button>
+<h1>Bấm phím mũi tên trên bàn phím để di chuyển quả bóng</h1>
 <script>
     let objimg = document.getElementById('img')
-    function init() {
+    function init(evt) {
         objimg.style.position = 'relative'
         objimg.style.left = '0px'
+        objimg.style.top = '0px'
+        switch (evt.keyCode) {
+            case 37:
+                leftArrowPressed()
+                break;
+            case 39:
+                rightArrowPressed()
+                break;
+            case 38:
+                upArrowPressed()
+                break;
+            case 40:
+                downArrowPressed()
+                break;
+        }
     }
-    function move() {
-        objimg.style.left = parseInt(objimg.style.left) + 10 + 'px'
+    function upArrowPressed() {
+        objimg.style.top = parseInt(objimg.style.top) - 20 + 'px'
     }
+    function downArrowPressed() {
+        objimg.style.top = parseInt(objimg.style.top) + 20 + 'px'
+    }
+    function leftArrowPressed() {
+        objimg.style.left = parseInt(objimg.style.left) - 20 + 'px'
+    }
+    function rightArrowPressed() {
+        objimg.style.left = parseInt(objimg.style.left) + 20 + 'px'
+    }
+    document.addEventListener('keydown', init);
     window.onload = init;
 
 </script>
